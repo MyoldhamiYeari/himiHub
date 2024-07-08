@@ -29,8 +29,9 @@ local notifications = {}
 
 local himihubvalues = {
 	UIUrl = "https://github.com/MyoldhamiYeari/himiHub/raw/main/himihubui.rbxm",
+	UIid = "18398134908",
 	Folder = "himihub/",
-    ver = "0.1a"
+	ver = "0.1a"
 }
 
 local function checkFolder() 
@@ -60,34 +61,28 @@ getfenv().warn = function()
 end
 
 function getUIandLoad()
-	local data = game:HttpGet(himihubvalues.UIUrl)
+	--[[local data = game:HttpGet(himihubvalues.UIUrl)
 	if not data then
 		return false
 	end
 	writefile(himihubvalues.Folder.."/Assets/UI.rbxm", data)
-	return getcustomasset(himihubvalues.Folder.."/Assets/UI.rbxm")
+	return getcustomasset(himihubvalues.Folder.."/Assets/UI.rbxm")]]
+	return game:GetObjects("rbxassetid://"..himihubvalues.UIid)[1]
 end
 
-local ScreenGui = Instance.new("ScreenGui")Frame = Instance.new("Frame")UICorner = Instance.new("UICorner")
-TextLabel = Instance.new("TextLabel")UITextSizeConstraint = Instance.new("UITextSizeConstraint")UIStroke = Instance.new("UIStroke")
-ScreenGui.Parent = coreGui;Frame.AnchorPoint = Vector2.new(0.5, 0);Frame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
-Frame.BackgroundTransparency = 0.4;Frame.BorderColor3 = Color3.new(0, 0, 0);Frame.BorderSizePixel = 0
-Frame.Parent = ScreenGui;Frame.Size = UDim2.new(0, 400, 0, 25)UICorner.CornerRadius = UDim.new(1, 0)UICorner.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)TextLabel.BackgroundTransparency = 1;TextLabel.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel.BorderSizePixel = 0;TextLabel.Font = Font.new("rbxassetid://12187365364", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextLabel.Parent = Frame;TextLabel.Size = UDim2.new(1, 0, 1, 0);TextLabel.Text = "Himi Hub is currently loading, please wait."
-TextLabel.TextColor3 = Color3.new(1, 1, 1)TextLabel.TextScaled = true;TextLabel.TextSize = 12;TextLabel.TextWrapped = true
-UITextSizeConstraint.MaxTextSize = 14;UITextSizeConstraint.Parent = TextLabel;UIStroke.Parent = Frame;UIStroke.Transparency = 0.5
+local loadingUI = game:GetObjects("rbxassetid://18398146507")[1]
+loadingUI.Parent = coreGui
+local loadingText = loadingUI.Frame.TextLabel
 -- The loading ui.
 
 local UI = getUIandLoad()
 if not UI then
-	TextLabel.Text = "Failed to load, sorry!"
+	loadingText.Text = "Failed to load, sorry!"
 	cloneref(game:GetService('Debris')):AddItem(ScreenGui, 5)
 	return
 end
-UI = game:GetObjects(UI)[1]
 UI.Parent=coreGui
+loadingUI:Destroy()
 
 local notificationContainer = UI.Notifications
 
