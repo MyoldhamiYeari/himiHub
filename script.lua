@@ -50,7 +50,7 @@ local function checkFolder()
 end
 checkFolder()
 
-getfenv().error = function() -- Add these so you wouldn't get detected easily. (dont thank me but its bad)
+--[[getfenv().error = function() -- Add these so you wouldn't get detected easily. (dont thank me but its bad)
 	return
 end
 getfenv().print = function()
@@ -58,7 +58,7 @@ getfenv().print = function()
 end
 getfenv().warn = function()
 	return
-end
+end]]
 
 function getUIandLoad()
 	--[[local data = game:HttpGet(himihubvalues.UIUrl)
@@ -78,7 +78,7 @@ local loadingText = loadingUI.Frame.TextLabel
 local UI = getUIandLoad()
 if not UI then
 	loadingText.Text = "Failed to load, sorry!"
-	cloneref(game:GetService('Debris')):AddItem(ScreenGui, 5)
+	cloneref(game:GetService('Debris')):AddItem(loadingUI, 5)
 	return
 end
 UI.Parent=coreGui
