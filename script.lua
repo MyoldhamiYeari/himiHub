@@ -165,4 +165,4 @@ local function queueNotification(Title, Description, Image)
 	end)
 end
 local timeTaken = curtick - tick()
-queueNotification(("Successfully loaded in %s seconds"):format(tostring(timeTaken):sub(1,3)), "Successfully loaded the hub, current version is "..himihubvalues.ver, "rbxassetid://14187686429")
+queueNotification(("Loaded in %s seconds"):format(tostring(timeTaken):sub(1,3)), "Successfully loaded the hub, current version is "..himihubvalues.ver.." remember to make an issue in the github repo if you find a bug, thank you!", "14187686429")
