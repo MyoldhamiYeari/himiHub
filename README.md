@@ -3,3 +3,4 @@
 Free, open source hub made for personal use.
 
 Currently being worked on.
+Code might not be the best, i am still new to this type of scripting.
