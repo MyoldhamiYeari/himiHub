@@ -28,7 +28,7 @@ local contentProvider = cloneref(game:GetService("ContentProvider"))
 local notifications = {}
 
 local himihubvalues = {
-	UIUrl = "https://github.com/MyoldhamiYeari/himiHub/raw/main/himihubui.rbxm",
+	UIUrl = "https://github.com/MyoldhamiYeari/himiHub/raw/refs/heads/main/himihubui.rbxm",
 	UIid = "18398134908",
 	Folder = "himihub/",
 	ver = "0.13a",
