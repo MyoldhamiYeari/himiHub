@@ -59,7 +59,14 @@ end
 checkFolder()
 
 function getUIandLoad()
-	return game:GetObjects("rbxassetid://"..himihubvalues.UIid)[1]
+	local data = game:HttpGet(himihubvalues.UIUrl)
+	if not data then
+		return false
+	end
+	writefile(himihubvalues.Folder.."/Assets/UI.rbxm", data)
+	task.wait(5)
+	return getcustomasset(himihubvalues.Folder.."/Assets/UI.rbxm")
+	--return game:GetObjects("rbxassetid://"..himihubvalues.UIid)[1]
 end
 
 --[[local loadingUI = game:GetObjects("rbxassetid://18398146507")[1]
