@@ -1,7 +1,7 @@
 local curtick = tick()
-if getgenv().himihubloaded then
+--[[if getgenv().himihubloaded then
 	return
-end
+end]]
 local cloneref = cloneref or function(object)
 	return object
 end
@@ -63,9 +63,9 @@ function getUIandLoad()
 	if not data then
 		return false
 	end
-	writefile(himihubvalues.Folder.."/Assets/UI.rbxm", data)
+	writefile("UI.rbxm", data)
 	task.wait(5)
-	return getcustomasset(himihubvalues.Folder.."/Assets/UI.rbxm")
+	return getcustomasset("UI.rbxm")
 	--return game:GetObjects("rbxassetid://"..himihubvalues.UIid)[1]
 end
 
